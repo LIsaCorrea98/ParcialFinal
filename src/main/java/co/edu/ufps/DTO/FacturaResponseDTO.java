@@ -1,5 +1,10 @@
 package co.edu.ufps.DTO;
 
-public class FacturaResponseDTO {
+import lombok.Data;
 
+@Data
+public class FacturaResponseDTO {
+    private String status;
+    private String message;
+    private FacturaDataDTO data;
 }
