@@ -2,11 +2,12 @@ package co.edu.ufps.Entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import java.util.List;
 
 @Entity
-@Table(name = "cliente")
+@Table(name = "tienda")
 @Data
-public class Cliente {
+public class Tienda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +17,10 @@ public class Cliente {
     @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
-    @Column(name = "identificacion", nullable = false, length = 50, unique = true)
-    private String identificacion;
+    @OneToMany(mappedBy = "tienda")
+    private List<Cajero> cajeros;
+
+    @OneToMany(mappedBy = "tienda")
+    private List<Vendedor> vendedores;
 }
+

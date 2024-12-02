@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name = "cliente")
+@Table(name = "vendedor")
 @Data
-public class Cliente {
+public class Vendedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,4 +18,9 @@ public class Cliente {
 
     @Column(name = "identificacion", nullable = false, length = 50, unique = true)
     private String identificacion;
+
+    @ManyToOne
+    @JoinColumn(name = "tienda_id", nullable = false)
+    private Tienda tienda;
 }
+
