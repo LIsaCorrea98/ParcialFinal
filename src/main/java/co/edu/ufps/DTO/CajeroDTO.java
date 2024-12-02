@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class CajeroDTO {
-    private Long id;
+    private Integer id;
     private String nombre;
     private String apellido;
     private String email;
